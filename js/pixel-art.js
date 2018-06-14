@@ -25,11 +25,11 @@ var list_pixels = document.getElementById('grilla-pixeles');
 
 function see_array(nombreColores){
   for(var i = 0; i < nombreColores.length; i++){
-    var temp = document.createElement('div');
-    temp.attributes = 'backgroundColor';
-    temp.style.backgroundColor = nombreColores[i];
-    temp.className = 'color-paleta';
-    paleta.appendChild(temp);
+    var div_create = document.createElement('div');
+    div_create.attributes = 'backgroundColor';
+    div_create.style.backgroundColor = nombreColores[i];
+    div_create.className = 'color-paleta';
+    paleta.appendChild(div_create);
   }
 }
 see_array(nombreColores);
@@ -38,6 +38,17 @@ var div_pixel = document.createElement('div');
 for(i = 0; i < 1750; i++){
   div_pixel = document.createElement('div');
   list_pixels.appendChild(div_pixel);
+}
+
+var selected_color = document.getElementById('indicador-de-color');
+
+var div_colors = document.querySelector('#paleta');
+
+div_colors.addEventListener('click', change_color);
+
+function change_color(e){
+  div_colors = e.target.style.backgroundColor;
+  selected_color.style.backgroundColor = div_colors;
 }
 
 
