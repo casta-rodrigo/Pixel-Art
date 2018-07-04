@@ -61,15 +61,16 @@ function painting (e){
 // Es decir, el que se elige con la rueda de color.
 var colorPersonalizado = document.getElementById('color-personalizado');
 
-colorPersonalizado.addEventListener('change', 
-  (function() {
+colorPersonalizado.addEventListener('change', function () {
     // Se guarda el color de la rueda en colorActual
     colorActual = colorPersonalizado.value;
+    console.log(colorActual);
+    selected_color.style.backgroundColor = colorActual;
+
+
+  });
+
     // Completar para que cambie el indicador-de-color al colorActual
-
-
-  })
-);
 
 
 
