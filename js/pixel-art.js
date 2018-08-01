@@ -54,7 +54,6 @@ list_pixels.addEventListener('mousedown',painting);
 function painting (e){
   e.target.style.backgroundColor = selected_color.style.backgroundColor;
   //div_colors.style.backgroundColor = selected_color;
-  console.log(list_pixels);
 }
 
 // Variable para guardar el elemento 'color-personalizado'
@@ -66,13 +65,41 @@ colorPersonalizado.addEventListener('change', function () {
     colorActual = colorPersonalizado.value;
     console.log(colorActual);
     selected_color.style.backgroundColor = colorActual;
-
-
   });
 
-    // Completar para que cambie el indicador-de-color al colorActual
+var mouseApretado;
 
+/////detect mouse down or up////////////
 
+ /*eso lo detectas si queres con un event listener sobre la grilla de pixeles, eso
+ya lo tenes ?
+y te conviene con cada uno de esos dos llamar una funcion que modifique una variable
+que puede ser la que compruebe que el mouse esta apretado o suelto
+y a partir de ahi, con un mousemove
+por ejemplo (y chequeando la variable de comprobante) anda pintando pixeles*/
 
+var mouse;
 
+function check_mouse(){
+  list_pixels.addEventListener('mousedown', check_1,false);
+  function check_1(){
+    mouse = true;
+    return mouse;
+  }
+  list_pixels.addEventListener('mouseup',check_2,false);
+  function check_2(){
+    mouse = false;
+    return mouse;
+  }
+}
 
+/*function mouseDownUp() {
+  grilla.addEventListener('mousedown', function() {
+      mouse = true;
+      return mouse;
+  }, false);
+  grilla.addEventListener('mouseup', function() {
+      mouse = false;
+      return mouse;
+  }, false);
+ }*/
